@@ -35,12 +35,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        XXCocoaSwift()
+
 //        testID()
         
 //        testExtern()
         
         testConclusure()
+        
+        testViewController()
         
     }
 
@@ -90,7 +93,9 @@ class ViewController: UIViewController {
         completionBlock("5", nil)
     }
     
-
+    func testViewController() -> Void {
+//        let myVC:MyViewController = MyViewController()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

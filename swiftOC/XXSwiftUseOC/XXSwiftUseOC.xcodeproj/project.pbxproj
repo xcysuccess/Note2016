@@ -12,9 +12,12 @@
 		9A416B2B1D4C8429007FC52E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A416B291D4C8429007FC52E /* Main.storyboard */; };
 		9A416B2D1D4C8429007FC52E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A416B2C1D4C8429007FC52E /* Assets.xcassets */; };
 		9A416B301D4C8429007FC52E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A416B2E1D4C8429007FC52E /* LaunchScreen.storyboard */; };
+		9A4C12A01D520C3900ED67A7 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C129F1D520C3900ED67A7 /* MyViewController.swift */; };
 		9AC014B51D4CA015006F5169 /* Squirrel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC014B41D4CA015006F5169 /* Squirrel.m */; };
 		9AC014B71D4CA057006F5169 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC014B61D4CA057006F5169 /* Person.swift */; };
 		9AC014B91D4CA336006F5169 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC014B81D4CA336006F5169 /* Apple.swift */; };
+		9AE2A1291D52183900D31495 /* XXTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2A1281D52183900D31495 /* XXTableViewController.swift */; };
+		9AE2A12B1D521E6600D31495 /* XXCocoaSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE2A12A1D521E6600D31495 /* XXCocoaSwift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,11 +28,14 @@
 		9A416B2C1D4C8429007FC52E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A416B2F1D4C8429007FC52E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A416B311D4C8429007FC52E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A4C129F1D520C3900ED67A7 /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		9AC014B21D4CA015006F5169 /* XXSwiftUseOC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XXSwiftUseOC-Bridging-Header.h"; sourceTree = "<group>"; };
 		9AC014B31D4CA015006F5169 /* Squirrel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Squirrel.h; sourceTree = "<group>"; };
 		9AC014B41D4CA015006F5169 /* Squirrel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Squirrel.m; sourceTree = "<group>"; };
 		9AC014B61D4CA057006F5169 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		9AC014B81D4CA336006F5169 /* Apple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
+		9AE2A1281D52183900D31495 /* XXTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XXTableViewController.swift; sourceTree = "<group>"; };
+		9AE2A12A1D521E6600D31495 /* XXCocoaSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XXCocoaSwift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,9 @@
 				9AC014B31D4CA015006F5169 /* Squirrel.h */,
 				9AC014B41D4CA015006F5169 /* Squirrel.m */,
 				9AC014B21D4CA015006F5169 /* XXSwiftUseOC-Bridging-Header.h */,
+				9A4C129F1D520C3900ED67A7 /* MyViewController.swift */,
+				9AE2A1281D52183900D31495 /* XXTableViewController.swift */,
+				9AE2A12A1D521E6600D31495 /* XXCocoaSwift.swift */,
 			);
 			path = XXSwiftUseOC;
 			sourceTree = "<group>";
@@ -149,10 +158,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AC014B71D4CA057006F5169 /* Person.swift in Sources */,
+				9AE2A1291D52183900D31495 /* XXTableViewController.swift in Sources */,
 				9AC014B51D4CA015006F5169 /* Squirrel.m in Sources */,
 				9A416B281D4C8429007FC52E /* ViewController.swift in Sources */,
 				9A416B261D4C8429007FC52E /* AppDelegate.swift in Sources */,
+				9A4C12A01D520C3900ED67A7 /* MyViewController.swift in Sources */,
 				9AC014B91D4CA336006F5169 /* Apple.swift in Sources */,
+				9AE2A12B1D521E6600D31495 /* XXCocoaSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +280,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/path-to-framework-parent-directory";
 				INFOPLIST_FILE = XXSwiftUseOC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mqq.tomxiang.XXSwiftUseOC;
@@ -282,6 +295,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/path-to-framework-parent-directory";
 				INFOPLIST_FILE = XXSwiftUseOC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mqq.tomxiang.XXSwiftUseOC;

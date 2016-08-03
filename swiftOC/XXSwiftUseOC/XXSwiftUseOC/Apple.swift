@@ -9,18 +9,18 @@
 import Foundation
 
 @objc(Color)
-enum Цвет: Int {
+enum AppColor: Int {
     @objc(Red)
-    case Красный
+    case KRedColor
     
     @objc(Black)
-    case Черный
+    case KBlackColor
 }
 
 @objc(GameSwfitItem)
 class Apple:NSObject{
     @objc(color)
-    var цвет: Цвет = .Красный
+    var appColor: AppColor = .KRedColor
     
     @objc(swiftName)
     var name: String

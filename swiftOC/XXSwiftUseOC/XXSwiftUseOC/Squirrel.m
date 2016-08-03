@@ -14,6 +14,8 @@
 -(void) print{
     Person *person = [[Person alloc] init];
     [person printName];
+    
+    CustomError errorType = CustomErrorA;
 }
 
 
