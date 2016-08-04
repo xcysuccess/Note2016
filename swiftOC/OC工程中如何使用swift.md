@@ -1,7 +1,18 @@
-##OC工程中如何使用swift
-swift的基础语法相信大家都看过很多,这里有最全的资料:[swift官网](https://developer.apple.com/swift/)
-### 一. 建立工程
-	
+##从OC到swift的深入浅出
+swift的基础语法相信大家都看过很多,这里有最全的资料:[swift官网](https://developer.apple.com/swift/),这里讲的是swift2.2
+### 一. 建立工程  
+
+![](image/1.png)  
+选择Create Brideing Header  
+
+![](image/2.png)  
+
+这里我自己用keyNote画了一个图  
+
+![](image/3.png)  
+
+当然，没有demo的例子完全在耍流氓，大家稍后看一下最后一页的demo附录,可以点击下载
+
 
 ### 二. 与Objective-C的API交互
 #### 1. 初始化
@@ -632,17 +643,18 @@ static NSString * _Nonnull const CustomErrorDomain = @"XXSwiftUseOC.CustomError"
 
 
 
-### 五. playground实时显示 
+### 七. playground实时显示 
 
  
 
 
-### 六. 参考目录
-1.[Using Swift with Cocoa and Objective-C (Swift 2.2)
+### 八. 参考目录
+1.[swift2.2官方](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309)  
+2.[Using Swift with Cocoa and Objective-C (Swift 2.2)
 ](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html#//apple_ref/doc/uid/TP40014216-CH4-ID35)  
 2.[15 Tips to Become a Better Swift Developer
 ](http://savvyapps.com/blog/swift-tips-for-developers)  
-3.[Swift项目兼容Objective-c问题汇总](http://00red.com/blog/2015/06/02/swift-objectivec-compatible/)  
-4.[中文版](https://github.com/CocoaChina-editors/Welcome-to-Swift/tree/master/Using%20Swift%20with%20Cocoa%20and%20Objective-C/02Interoperability)    
+3.[Using Swift with Cocoa and Objective-C 中文版](https://github.com/CocoaChina-editors/Welcome-to-Swift/tree/master/Using%20Swift%20with%20Cocoa%20and%20Objective-C/02Interoperability)  
+4.[Swift项目兼容Objective-c问题汇总](http://00red.com/blog/2015/06/02/swift-objectivec-compatible/)   
 5.[swiftgg](http://swift.gg/)  
 6.[CoreFoundation需要注意的点](http://joywek.com/blog/2016/07/18/five-things-about-corefoundation/)

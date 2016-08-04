@@ -13,6 +13,8 @@
 		9A416AEA1D4C6DF6007FC52E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A416AE81D4C6DF6007FC52E /* Main.storyboard */; };
 		9A416AEC1D4C6DF6007FC52E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A416AEB1D4C6DF6007FC52E /* Assets.xcassets */; };
 		9A416AEF1D4C6DF6007FC52E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A416AED1D4C6DF6007FC52E /* LaunchScreen.storyboard */; };
+		9ABEC5971D52EDAB009A9E2B /* XXSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEC5961D52EDAB009A9E2B /* XXSwiftViewController.swift */; };
+		9ABEC59B1D52EE9D009A9E2B /* OSMOView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABEC59A1D52EE9D009A9E2B /* OSMOView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		9A416AEB1D4C6DF6007FC52E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A416AEE1D4C6DF6007FC52E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A416AF01D4C6DF6007FC52E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ABEC5951D52EDAB009A9E2B /* XXOCUseSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "XXOCUseSwift-Bridging-Header.h"; path = "swift/XXOCUseSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		9ABEC5961D52EDAB009A9E2B /* XXSwiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XXSwiftViewController.swift; sourceTree = "<group>"; };
+		9ABEC5991D52EE9D009A9E2B /* OSMOView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMOView.h; sourceTree = "<group>"; };
+		9ABEC59A1D52EE9D009A9E2B /* OSMOView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMOView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,8 @@
 		9A416ADE1D4C6DF6007FC52E /* XXOCUseSwift */ = {
 			isa = PBXGroup;
 			children = (
+				9ABEC5981D52EE91009A9E2B /* oc */,
+				9ABEC5941D52EB57009A9E2B /* swift */,
 				9A416AE21D4C6DF6007FC52E /* AppDelegate.h */,
 				9A416AE31D4C6DF6007FC52E /* AppDelegate.m */,
 				9A416AE51D4C6DF6007FC52E /* ViewController.h */,
@@ -75,8 +83,26 @@
 			isa = PBXGroup;
 			children = (
 				9A416AE01D4C6DF6007FC52E /* main.m */,
+				9ABEC5951D52EDAB009A9E2B /* XXOCUseSwift-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9ABEC5941D52EB57009A9E2B /* swift */ = {
+			isa = PBXGroup;
+			children = (
+				9ABEC5961D52EDAB009A9E2B /* XXSwiftViewController.swift */,
+			);
+			path = swift;
+			sourceTree = "<group>";
+		};
+		9ABEC5981D52EE91009A9E2B /* oc */ = {
+			isa = PBXGroup;
+			children = (
+				9ABEC5991D52EE9D009A9E2B /* OSMOView.h */,
+				9ABEC59A1D52EE9D009A9E2B /* OSMOView.m */,
+			);
+			path = oc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ABEC59B1D52EE9D009A9E2B /* OSMOView.m in Sources */,
 				9A416AE71D4C6DF6007FC52E /* ViewController.m in Sources */,
 				9A416AE41D4C6DF6007FC52E /* AppDelegate.m in Sources */,
+				9ABEC5971D52EDAB009A9E2B /* XXSwiftViewController.swift in Sources */,
 				9A416AE11D4C6DF6007FC52E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,10 +293,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = XXOCUseSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mqq.tomxiang.XXOCUseSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XXOCUseSwift/swift/XXOCUseSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -276,10 +307,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = XXOCUseSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mqq.tomxiang.XXOCUseSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XXOCUseSwift/swift/XXOCUseSwift-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -302,6 +335,7 @@
 				9A416AF51D4C6DF6007FC52E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "XXOCUseSwift-Swift.h"
 
 @interface ViewController ()
 {
@@ -18,10 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [UIColor darkGrayColor];
-    textfield.text = @"test";
-    [textfield setText:@"test"];
-    // Do any additional setup after loading the view, typically from a nib.
+    XXSwiftViewController *swiftVC = [[XXSwiftViewController alloc] init];
+    [swiftVC printOSMOView];
 }
 
 - (void)didReceiveMemoryWarning {
