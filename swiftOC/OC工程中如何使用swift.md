@@ -1,5 +1,8 @@
 ##从OC到swift的深入浅出
-swift的基础语法相信大家都看过很多,这里有最全的资料:[swift官网](https://developer.apple.com/swift/),这里讲的是swift2.2
+swift的基础语法相信大家都看过很多,这里有最全的资料:[swift官网](https://developer.apple.com/swift/),这里讲的是swift2.2。网上有一句很有意思的话:  
+
+**C，C++， Objective ，Swift 但就像《葫芦娃》里面七个兄弟中的四个一样牛掰，七葫芦娃是最厉害的，但需要七个兄弟齐心协力才能收妖**  
+
 ### 一. 建立工程  
 
 ![](image/1.png)  
@@ -11,7 +14,52 @@ swift的基础语法相信大家都看过很多,这里有最全的资料:[swift�
 
 ![](image/3.png)  
 
-当然，没有demo的例子完全在耍流氓，大家稍后看一下最后一页的demo附录,可以点击下载
+当然，没有demo的例子完全在耍流氓，大家稍后看一下最后一页的demo附录,可以点击下载,这里贴一下代码  
+
+在OSMOView.m中:    
+
+```objc
+@implementation OSMOView
+
+-(void) print
+{
+    NSLog(@"testXXX");
+}
+```  
+
+在ViewController.m中:    
+
+```objc
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    XXSwiftViewController *swiftVC = [[XXSwiftViewController alloc] init];
+    [swiftVC printOSMOView];
+}
+```  
+
+在XXSwiftViewController中:  
+
+```objc
+class XXSwiftViewController: UIViewController {
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        printOSMOView();
+    }
+    
+    func printOSMOView() -> Void {
+        let osmoView:OSMOView = OSMOView()
+        osmoView.print();
+    }
+    
+}
+```
 
 
 ### 二. 与Objective-C的API交互
@@ -382,7 +430,46 @@ print("操作完毕")
 ### 四. 看OC/Swift的混用需要注意的点
 #### 1. 对象比较
 对象比较：
-todo
+在纯swift中用 == 判等  
+
+```objc
+class TodoItem {
+    let uuid: String
+    var title: String
+    
+    init(uuid: String, title: String) {
+        self.uuid = uuid
+        self.title = title
+    }
+}
+
+extension TodoItem: Equatable {
+    
+}
+
+func ==(lhs: TodoItem, rhs: TodoItem) -> Bool {
+    return lhs.uuid == rhs.uuid
+}
+//参考::http://swifter.tips/equal/
+```  
+
+如果和oc对象做比较，还是需要重写isEqual方法  
+
+```objc
+class TodoItemOC :NSObject{
+    let uuid: String
+    var title: String
+    
+    init(uuid: String, title: String) {
+        self.uuid = uuid
+        self.title = title
+    }
+    
+    override func isEqual(object: AnyObject?) -> Bool {
+        return true;
+    }
+}
+```
 
 #### 2. 类型兼容
 ##### 2.1 是否继承NSObject或者oc的类
@@ -433,7 +520,72 @@ class Person: NSObject {
 苹果官网有一句话:  
 You cannot import C++ code directly into Swift. Instead, create an Objective-C or C wrapper for C++ code.  
 swift无法直接用c++，需要用oc或者c进行包装
-todo
+
+##### 1.swift调用c
+```objc
+//
+//  CFile.c
+//  XXSwiftUseOC
+//
+//  Created by tomxiang on 8/4/16.
+//  Copyright © 2016 tomxiang. All rights reserved.
+//
+
+#include <stdio.h>
+void testc()
+{
+    printf("CFile\n");
+}
+```
+
+##### 2.swift调用c++
+.h中:  
+
+```objc
+#ifndef junk_h
+#define junk_h
+
+class A
+{
+public:
+    A(int);
+    int getInt();
+private:
+    int m_Int;
+};
+
+#endif /* junk_h */
+```  
+
+.cpp中:  
+
+```objc
+#include "junk.h"
+
+A::A(int _i) : m_Int(_i) {}
+
+int A::getInt() { return m_Int; }
+
+extern "C" int getIntFromCPP()
+{
+    // Create an instance of A, defined in
+    // the library, and call getInt() on it:
+    return A(1234).getInt();
+}
+```  
+
+-bridging-Header中:  
+
+```objc
+
+#import "Squirrel.h"
+
+void testc();
+
+int getIntFromCPP();
+```  
+
+一切完成后，即可顺利调用  
 
 #### 4. 本地化
 如果是swift工程,可以这样  
@@ -476,64 +628,29 @@ hud.bezelView.color = Constants.BEZEL_COLOR
 +(CGFloat) OSMO_ICON_WIDTH_SWIFT;
 ```
 
-#### 六. CoreFoundation
-内存管理对象(Memory Managed Objects)，在 Swift 中，从 annotated APIs 返回的 Core Foundation 对象能够自动进行内存管理--我们不再需要调用自身的CFRetain，CFRelease，或者CFAutorelease函数。  
-
-Swift 中关于 CoreFoundation 要知道的 5 件事
-
-##### 1. 不需要使用带有 Ref 后辍的类型
-在 swift 中所有的类都是引用类型，不需要 “Ref” 后辍。
-
-苹果文档中有这样的说明：
-
-When Swift imports Core Foundation types, the compiler remaps the names of these types. The compiler removes Ref from the end of each type name because all Swift classes are reference types, therefore the suffix is redundant.  
-
-##### 2. CFTypeRef 就是 AnyObject
-任何地方的 CFType 或是 CFTypeRef 都可以被替换成 AnyObject。
-
-苹果文档的说明：
-
-The Core Foundation CFTypeRef type completely remaps to the AnyObject type. Wherever you would use CFTypeRef, you should now use AnyObject in your code.  
-
-##### 3. Core Foundation 是自动内存管理的
-除了少数部分没有迁移（这些你是可以知道的，因为他们会返回未托管的实例），对于大部分对象不需要调用 CFRetain，CFRelease，CFAutorelease。
-
-苹果文档的说明：
-
-Core Foundation objects returned from annotated APIs are automatically memory managed in Swift—you do not need to invoke the CFRetain, CFRelease, or CFAutorelease functions yourself.  
-
-##### 4. 尽管还不完美，Toll Free Bridging 大部分情况下是透明的
-苹果文档的说明:
-
-In Swift, you can use each pair of toll-free bridged Foundation and Core Foundation types interchangeably. You can also bridge some toll-free bridged Core Foundation types to Swift standard library types if you cast to a bridging Foundation type first.”  
-
-##### 5. 标注你的对象
-当从你的 C 或 OC 方法中创建自定义的 CF 对象时，使用 CF_RETURNS_RETAINED 或 CF_RETURNS_NOT_RETAINED 标注它们。Swift 会使用这些提示对你的对象进行自动内存管理。
-
-苹果文档的说明：
-
-If you return Core Foundation objects from your own C functions and Objective-C methods, annotate them with either CF_RETURNS_RETAINED or CF_RETURNS_NOT_RETAINED. The compiler automatically inserts memory management calls when it compiles Swift code that invokes these APIs.
-
-##### 6.demo说明
-当 Swift 导入 unannotated 的APIs时，编译器将不会自动地对返回的 Core Foundation 对象进行内存管理托管。Swift 将这些返回的 Core Foundation 对象封闭在一个Unmanaged<T>结构中。那些间接返回 Core Foundation 的对象也是非托管的。举个例子，这里有一个 unannotated 的 C 函数:  
+#### 6. CoreFoundation
+[http://swifter.tips/toll-free/](http://swifter.tips/toll-free/),已经写的非常完整了.  
+大概的意思就是除掉了CFRelease,CFRetain等，CFFundation对象已经变成ARC了.     
+有一点例外，那就是对于非系统的 CF API (比如你自己写的或者是第三方的)，因为并没有强制机制要求它们一定遵照 Cocoa 的命名规范，所以贸然进行自动内存管理是不可行的。如果你没有明确地使用上面的标注来指明内存管理的方式的话，将这些返回 CF 对象的 API 导入 Swift 时，它们的类型会被对对应为 Unmanaged<T>  
 
 ```objc
-CFStringRef StringByAddingTwoStrings(CFStringRef string1, CFStringRef string2)
+// CFGetSomething() -> Unmanaged<Something>
+// CFCreateSomething() -> Unmanaged<Something>
+// 两者都没有进行标注，Create 中进行了创建
+
+let unmanaged = CFGetSomething()
+let something = unmanaged.takeUnretainedValue()
+// something 的类型是 Something，直接使用就可以了
+
+let unmanaged = CFCreateSomething()
+let something = unmanaged.takeRetainedValue()
+
+// 使用 something
+
+//  因为在取值时 retain 了，使用完成后进行 release
+unmanaged.release()
 ```  
-
-这里说明了Swift是怎么导入的:
-
-```objc
-func StringByAddingTwoStrings(CFString!, CFString!) -> Unmanaged<CFString>!
-```  
-
-假设我们从 unannotated APIs 接收了非托管的对象，在使用它之前，我们必须将它转换为能够内存管理的对象。在这方面，Swift 可以帮我们进行内存管理而不用自己动手。同时，Unmanaged<T>结构也提供了两个方法来把一个非托管对象转换为一个可内存管理的对象--takeUnretainedValue()方法和takeRetainedValue()方法。这两个方法会返回原始的，非封闭的对象类型。我们可以根据我们实际调用的APIs返回的unretained或retained的对象，来选择哪一方法更合适。
-
-比如，假设这里有一个 C 函数，这个函数在返回值前不会释放CFString对象。在使用这个对象前，我们使用takeUnretainedValue()函数，以将它转换为一个能够内存管理托管的对象。
-
-```objc
-let memoryManagedResult = StringByAddingTwoStrings(str1, str2).takeUnretainedValue()
-```
+切记，这些只有在没有标注的极少数情况下才会用到，如果你只是调用系统的 CF API，而不会去写自己的 CF API 的话，是没有必要关心这些的  
 
 ### 五. 数据类型 
 #### 1. 字符串
@@ -633,28 +750,61 @@ typedef SWIFT_ENUM(NSInteger, CustomError) {
 static NSString * _Nonnull const CustomErrorDomain = @"XXSwiftUseOC.CustomError";
 ```
 
+### 六. playground实时显示 
+1.建议参考目录的2，官方文档。这里介绍的一点的`XCPlaygroundPage.currentPage.liveView`设置  
 
-### 六. swift高效篇
-#### 1. `map`
+```objc
+//: Playground - noun: a place where people can play
+import UIKit
+import XCPlayground
 
-#### 2. 
+var str = "Hello world 你好"
 
-#### 3. 单例
+XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
+
+//1.图片
+let image:UIImage = UIImage(named: "1.png")!
+
+//2.uibutton
+let button = UIButton(frame: CGRectMake(0,0,100,100))
+button.backgroundColor = UIColor.redColor()
+button.layer.cornerRadius = 10
+button.layer.borderWidth = 2
 
 
+//3.函数  点击editor的show display mode可以改变其查看方式
+var j = 2
+for i in 0  ..< 5{
+    j += i*j
+}
 
-### 七. playground实时显示 
+//4.add color
+let imageView = UIImageView(image:UIImage(named:"1.png"))
 
- 
+
+//5.view
+//第二种显示方法
+XCPlaygroundPage.currentPage.liveView = imageView
+
+let customView = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
+customView.backgroundColor = UIColor.whiteColor()
+//XCPlaygroundPage.currentPage.liveView = customView
+
+//5.动画
+```
+![](image/5.png)
 
 
-### 八. 参考目录
+### 七. 参考目录
 1.[swift2.2官方](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309)  
-2.[Using Swift with Cocoa and Objective-C (Swift 2.2)
+2.[playGround官方](https://developer.apple.com/library/ios/recipes/Playground_Help/Chapters/CreateAndEdit.html#//apple_ref/doc/uid/TP40015166-CH36-SW1)  
+3.[Using Swift with Cocoa and Objective-C (Swift 2.2)
 ](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html#//apple_ref/doc/uid/TP40014216-CH4-ID35)  
-2.[15 Tips to Become a Better Swift Developer
+4.[15 Tips to Become a Better Swift Developer
 ](http://savvyapps.com/blog/swift-tips-for-developers)  
-3.[Using Swift with Cocoa and Objective-C 中文版](https://github.com/CocoaChina-editors/Welcome-to-Swift/tree/master/Using%20Swift%20with%20Cocoa%20and%20Objective-C/02Interoperability)  
-4.[Swift项目兼容Objective-c问题汇总](http://00red.com/blog/2015/06/02/swift-objectivec-compatible/)   
-5.[swiftgg](http://swift.gg/)  
-6.[CoreFoundation需要注意的点](http://joywek.com/blog/2016/07/18/five-things-about-corefoundation/)
+5.[Using Swift with Cocoa and Objective-C 中文版](https://github.com/CocoaChina-editors/Welcome-to-Swift/tree/master/Using%20Swift%20with%20Cocoa%20and%20Objective-C/02Interoperability)  
+6.[Swift项目兼容Objective-c问题汇总](http://00red.com/blog/2015/06/02/swift-objectivec-compatible/)   
+7.[swiftgg](http://swift.gg/)  
+8.[CoreFoundation需要注意的点](http://joywek.com/blog/2016/07/18/five-things-about-corefoundation/)
+
+### 八. Demo下载

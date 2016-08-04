@@ -3,3 +3,7 @@
 //
 
 #import "Squirrel.h"
+
+void testc();
+
+int getIntFromCPP();

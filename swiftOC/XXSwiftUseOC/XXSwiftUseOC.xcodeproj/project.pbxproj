@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0E9FAF1D53693F00D40358 /* CFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E9FAE1D53693F00D40358 /* CFile.c */; };
+		9A0E9FB41D536A9000D40358 /* junk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E9FB31D536A9000D40358 /* junk.cpp */; };
+		9A0E9FB71D536F1500D40358 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E9FB61D536F1500D40358 /* TodoItem.swift */; };
 		9A416B261D4C8429007FC52E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A416B251D4C8429007FC52E /* AppDelegate.swift */; };
 		9A416B281D4C8429007FC52E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A416B271D4C8429007FC52E /* ViewController.swift */; };
 		9A416B2B1D4C8429007FC52E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A416B291D4C8429007FC52E /* Main.storyboard */; };
@@ -21,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A0E9FAE1D53693F00D40358 /* CFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CFile.c; sourceTree = "<group>"; };
+		9A0E9FB31D536A9000D40358 /* junk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = junk.cpp; sourceTree = "<group>"; };
+		9A0E9FB51D536A9D00D40358 /* junk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = junk.h; sourceTree = "<group>"; };
+		9A0E9FB61D536F1500D40358 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		9A416B221D4C8429007FC52E /* XXSwiftUseOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XXSwiftUseOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A416B251D4C8429007FC52E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A416B271D4C8429007FC52E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +89,10 @@
 				9A4C129F1D520C3900ED67A7 /* MyViewController.swift */,
 				9AE2A1281D52183900D31495 /* XXTableViewController.swift */,
 				9AE2A12A1D521E6600D31495 /* XXCocoaSwift.swift */,
+				9A0E9FAE1D53693F00D40358 /* CFile.c */,
+				9A0E9FB51D536A9D00D40358 /* junk.h */,
+				9A0E9FB31D536A9000D40358 /* junk.cpp */,
+				9A0E9FB61D536F1500D40358 /* TodoItem.swift */,
 			);
 			path = XXSwiftUseOC;
 			sourceTree = "<group>";
@@ -160,6 +171,9 @@
 				9AC014B71D4CA057006F5169 /* Person.swift in Sources */,
 				9AE2A1291D52183900D31495 /* XXTableViewController.swift in Sources */,
 				9AC014B51D4CA015006F5169 /* Squirrel.m in Sources */,
+				9A0E9FB41D536A9000D40358 /* junk.cpp in Sources */,
+				9A0E9FAF1D53693F00D40358 /* CFile.c in Sources */,
+				9A0E9FB71D536F1500D40358 /* TodoItem.swift in Sources */,
 				9A416B281D4C8429007FC52E /* ViewController.swift in Sources */,
 				9A416B261D4C8429007FC52E /* AppDelegate.swift in Sources */,
 				9A4C12A01D520C3900ED67A7 /* MyViewController.swift in Sources */,

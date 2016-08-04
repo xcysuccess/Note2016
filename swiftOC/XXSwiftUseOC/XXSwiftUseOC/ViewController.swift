@@ -35,16 +35,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        XXCocoaSwift()
-
+        
 //        testID()
         
 //        testExtern()
         
-        testConclusure()
+//        testConclusure()
+//        
+//        testViewController()
         
-        testViewController()
+//        testc()
         
+        NSLog("getIntFromCPP ::%d",getIntFromCPP());
     }
 
     
