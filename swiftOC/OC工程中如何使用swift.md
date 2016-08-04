@@ -805,7 +805,8 @@ customView.backgroundColor = UIColor.whiteColor()
 5.[Using Swift with Cocoa and Objective-C 中文版](https://github.com/CocoaChina-editors/Welcome-to-Swift/tree/master/Using%20Swift%20with%20Cocoa%20and%20Objective-C/02Interoperability)  
 6.[Swift项目兼容Objective-c问题汇总](http://00red.com/blog/2015/06/02/swift-objectivec-compatible/)   
 7.[swiftgg](http://swift.gg/)  
-8.[CoreFoundation需要注意的点](http://joywek.com/blog/2016/07/18/five-things-about-corefoundation/)
+8.[CoreFoundation需要注意的点](http://joywek.com/blog/2016/07/18/five-things-about-corefoundation/)  
+9.[swift2.2中文版](https://github.com/numbbbbb/the-swift-programming-language-in-chinese)  
 
 ### 八. Demo下载
 1.[Demo](https://github.com/xcysuccess/Note2016/tree/master/swiftOC)
